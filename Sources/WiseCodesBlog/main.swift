@@ -22,4 +22,4 @@ struct WiseCodesBlog: Website {
 }
 
 // This will generate your website using the built-in Foundation theme:
-try WiseCodesBlog().publish(withTheme: .foundation, deployedUsing: .gitHub("richardmaycode/wisecodesblog-deploy")) 
+try WiseCodesBlog().publish(withTheme: .foundation, deployedUsing: .gitHub("richardmaycode/WiseCodesBlog"))       
