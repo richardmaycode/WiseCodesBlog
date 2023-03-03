@@ -30,7 +30,19 @@ private struct BasicHTMLFactory: HTMLFactory {
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper {
-                    H1(index.title)
+                    Div {
+                        Image(url: "https://placehold.co/200x250", description: "Profile Picture")
+                            .class("profile-photo")
+                        Div {
+                            H1("Hi 👋, I'm Richard!")
+                            Paragraph("Welcome to my site,  I love SwiftUI, I plan on using this site to host my creations, and my explations within the framework.")
+                                .class("description")
+                        }
+                    }
+                    .class("flex")
+                    
+                    
+                    
                     Paragraph(context.site.description)
                         .class("description")
                     H2("Latest content")
@@ -225,6 +237,9 @@ private struct ItemTagList<Site: Website>: Component {
 private struct SiteFooter: Component {
     var body: Component {
         Footer {
+            Paragraph {
+                Text("Made with ❤️ and 🍰 in South Florida")
+            }
             Paragraph {
                 Text("Generated using ")
                 Link("Publish", url: "https://github.com/johnsundell/publish")
