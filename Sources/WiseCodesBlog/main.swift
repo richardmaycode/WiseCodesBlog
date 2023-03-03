@@ -1,6 +1,7 @@
 import Foundation
 import Publish
 import Plot
+import SplashPublishPlugin
 
 // This type acts as the configuration for your website.
 struct WiseCodesBlog: Website {
@@ -22,4 +23,16 @@ struct WiseCodesBlog: Website {
 }
 
 // This will generate your website using the built-in Foundation theme:
-try WiseCodesBlog().publish(withTheme: .basic, deployedUsing: .gitHub("richardmaycode/WiseCodesBlog-deploy"))
+//try WiseCodesBlog().publish(withTheme: .basic, deployedUsing: .gitHub("richardmaycode/WiseCodesBlog-deploy"))
+
+try WiseCodesBlog().publish(using: [
+    .copyResources(),
+    .installPlugin(.splash(withClassPrefix: "")),
+    .addMarkdownFiles(),
+    .generateHTML(withTheme: .basic),
+    .unwrap(RSSFeedConfiguration.default) { config in
+            .generateRSSFeed(including: [.posts], config: config)
+    },
+    .generateSiteMap(),
+    .deploy(using: .gitHub("richardmaycode/WiseCodesBlog-deploy"))
+])

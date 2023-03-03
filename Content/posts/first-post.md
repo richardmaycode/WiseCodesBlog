@@ -6,3 +6,9 @@ tags: first, article
 # My first post
 
 My first post's text.
+
+```
+import SwiftUI
+
+let test: String = "Testing out Spash Support"
+```
