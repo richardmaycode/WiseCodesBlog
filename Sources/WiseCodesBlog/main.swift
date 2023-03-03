@@ -15,11 +15,11 @@ struct WiseCodesBlog: Website {
 
     // Update these properties to configure your website:
     var url = URL(string: "https://your-website-url.com")!
-    var name = "WiseCodesBlog"
-    var description = "A description of WiseCodesBlog"
+    var name = "Richard Wise Codes"
+    var description = ""
     var language: Language { .english }
     var imagePath: Path? { nil }
 }
 
 // This will generate your website using the built-in Foundation theme:
-try WiseCodesBlog().publish(withTheme: .foundation, deployedUsing: .gitHub("richardmaycode/WiseCodesBlog"))       
+try WiseCodesBlog().publish(withTheme: .basic, deployedUsing: .gitHub("richardmaycode/WiseCodesBlog-deploy"))
